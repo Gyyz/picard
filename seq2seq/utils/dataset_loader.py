@@ -61,7 +61,7 @@ def load_dataset(
     )
 
 
-     _gptsql_dataset_dict: Callable[[], DatasetDict] = lambda: datasets.load.load_dataset(
+    _gptsql_dataset_dict: Callable[[], DatasetDict] = lambda: datasets.load.load_dataset(
         path=data_args.dataset_paths["gptsql"], cache_dir=model_args.cache_dir
     )
     _gptsql_metric: Callable[[], Metric] = lambda: datasets.load.load_metric(
@@ -71,7 +71,7 @@ def load_dataset(
         ex=ex,
         data_training_args=data_training_args,
     )
-    _gpt_pre_process_function = lambda batch, max_source_length, max_target_length: gptsql_pre_process_function(
+    _gptsql_pre_process_function = lambda batch, max_source_length, max_target_length: gptsql_pre_process_function(
         batch=batch,
         max_source_length=max_source_length,
         max_target_length=max_target_length,
